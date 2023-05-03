@@ -1,0 +1,24 @@
+*{
+    margin: 4px;
+    box-shadow: 1px 1px 4px grey,-1px -1px 4px grey;
+    padding: 2px;
+}
+body{
+    background: rgba(35, 43, 127, 0.306)
+}
+
+#container{
+    background: white;
+    margin: auto;
+    max-width: 300px;
+    height: 80vh;
+    box-shadow: 2px 2px grey;
+    overflow-Y: scroll;
+    scrollbar-width: 5px;
+}
+strong{
+    box-shadow: none;
+}
+#listad5{
+    text-align: center;
+}
