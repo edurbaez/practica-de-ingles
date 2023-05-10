@@ -15,10 +15,14 @@ body{
     box-shadow: 2px 2px grey;
     overflow-Y: scroll;
     scrollbar-width: 5px;
+    position: relative;
 }
 strong{
     box-shadow: none;
 }
 #listad5{
     text-align: center;
+}
+button{
+    flex: auto;
 }

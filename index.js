@@ -30,15 +30,51 @@ function cargar_item_al_dom() {
         console.log(indice_palabra)
     }
 }
-cargar_item_al_dom()
+//cargar_item_al_dom()
 
 
 
 
 // f
-function leer(texto) {
+var leer_parar= false;
+var item=1;
+velocidad= 2000;
+function leer(texto="hello, my friend") {
+    let textoaleer= document.getElementById(`eng${item}`).innerHTML
+    let lectura= new SpeechSynthesisUtterance(textoaleer)
+    speechSynthesis.speak(lectura)
+    item++
+    if (item==6) {
+        cargar_item_al_dom()
+        item=1
+    }
+    if (leer_parar== true) {
+        lectura.onend(
+            //setTimeout(() => {
+            leer()
+        )//}, velocidad))
+    }
+    
     
 }
+
+// play stop
+const play_stop=()=>{
+    let e= document.getElementById("play_stop")
+    if (e.innerHTML== ".leer.") {
+        e.innerHTML= ".parar."
+        leer_parar= true
+        leer()
+    }else{
+        e.innerHTML= ".leer."
+        leer_parar= false
+    }
+}
+
+
+
+//leer()
 function contar(params) {
     
 }
+

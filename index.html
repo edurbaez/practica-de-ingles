@@ -7,7 +7,7 @@
     <title>practicas de ingles</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body onload="cargar_item_al_dom()">
     <div id="container">
         <header>
             <h1>aprende ingles</h1>
@@ -41,6 +41,12 @@
             </div>
         </div>
         <div><h3 style="text-align: center ;">ver lista</h3></div>
+        <div id="botonera" style="display: flex;justify-content: space-around;position: absolute;width:90%;left: 4%; bottom: 0;">
+            <button onclick="velocidad+=200">++</button>
+            <button id="play_stop" onclick="play_stop()">.leer.</button>
+            <button onclick="velocidad-=200">--</button>
+        </div>
+        
     </div>
     
     <script src="listas.js" ></script>
