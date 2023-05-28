@@ -27,7 +27,7 @@ function cargar_item_al_dom() {
         let indice_palabra= palabra_random();
         document.getElementById(`esp${i}`).innerHTML= lenguaje_actual[indice_palabra]
         document.getElementById(`eng${i}`).innerHTML= lenguaje_deseado[indice_palabra]
-        console.log(indice_palabra)
+        //console.log(indice_palabra)
     }
 }
 //cargar_item_al_dom()
@@ -40,8 +40,9 @@ var leer_parar= false;
 var item=1;
 velocidad= 2000;
 function leer(texto="hello, my friend") {
-    let textoaleer= document.getElementById(`eng${item}`).innerHTML
-    let lectura= new SpeechSynthesisUtterance(textoaleer)
+    let textoaleer= document.getElementById(`eng${item}`)
+    bgcolor(textoaleer);
+    let lectura= new SpeechSynthesisUtterance(textoaleer.innerHTML)
     speechSynthesis.speak(lectura)
     item++
     if (item==6) {
@@ -50,9 +51,9 @@ function leer(texto="hello, my friend") {
     }
     if (leer_parar== true) {
         lectura.onend(
-            //setTimeout(() => {
+            setTimeout(() => {
             leer()
-        )//}, velocidad))
+        }, velocidad))
     }
     
     
@@ -78,3 +79,17 @@ function contar(params) {
     
 }
 
+///
+function bgcolor(textoaleer){
+    let color= `rgb(
+        ${100+Math.random()*100},
+        ${150+Math.random()*100},
+        ${200+Math.random()*50}
+        )
+    `;
+    textoaleer.parentElement.style.background=color;
+    setTimeout(() => {
+        textoaleer.parentElement.style.background="white";
+    }, 1000);
+};
+    
