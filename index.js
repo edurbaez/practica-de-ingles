@@ -35,7 +35,7 @@ function cargar_item_al_dom() {
 
 
 
-// f
+// freporduccion de las palabras
 var leer_parar= false;
 var item=1;
 velocidad= 2000;
@@ -55,8 +55,6 @@ function leer(texto="hello, my friend") {
             leer()
         }, velocidad))
     }
-    
-    
 }
 
 // play stop
@@ -72,14 +70,12 @@ const play_stop=()=>{
     }
 }
 
-
-
 //leer()
 function contar(params) {
     
 }
 
-///
+/// coloar el item leido
 function bgcolor(textoaleer){
     let color= `rgb(
         ${100+Math.random()*100},
@@ -90,6 +86,47 @@ function bgcolor(textoaleer){
     textoaleer.parentElement.style.background=color;
     setTimeout(() => {
         textoaleer.parentElement.style.background="white";
-    }, 1000);
+    }, 800);
 };
     
+///funcion para deplegar la lista de palabras
+var visulalizar_lista= false;
+function lista() {
+    let lista= document.getElementById("lista")
+    if (!visulalizar_lista) {
+        lista.innerHTML= `
+        <table style="width: 90%;text-align: center;">
+            <th >
+                <tr>
+                    <td style="background:grey;">español</td> 
+                    <td style="background:grey;">ingles</td> 
+                </tr>
+            </th>
+            <tbody id="tbody">
+                ${gen_lista()}
+            </tbody>
+        </table>
+        `;
+        visulalizar_lista= true
+    } else {
+        lista.innerHTML='<h3 id="lst" style="text-align: center ;">ver lista</h3>'
+        visulalizar_lista= false
+    }
+}
+function gen_lista() {
+    let lista_relleno
+    for (let i = 0; i < lenguaje_actual.length; i++) {
+        lista_relleno += `
+        <tr>
+            <td>${lenguaje_actual[i]}</td> 
+            <td>${lenguaje_deseado[i]}</td> 
+        </tr>
+        `;
+    }
+    return lista_relleno
+}
+
+//
+document.getElementById("lista").addEventListener("click",()=>{
+    lista()
+})

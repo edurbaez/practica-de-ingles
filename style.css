@@ -17,6 +17,14 @@ body{
     scrollbar-width: 5px;
     position: relative;
 }
+#botonera{
+    display: flex;
+    justify-content: space-around;
+    position: absolute;
+    width:90%;
+    left: 4%; 
+    bottom: 0;
+}
 strong{
     box-shadow: none;
 }
